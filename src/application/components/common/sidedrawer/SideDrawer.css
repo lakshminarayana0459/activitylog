@@ -1,6 +1,6 @@
 .side-drawer {
     height: 100%;
-    background: white;
+    background: #fff;
     box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
     position: fixed;
     top: 0;
@@ -8,8 +8,47 @@
     width: 70%;
     max-width: 250px;
     z-index: 200;
-    margin-top: 55Px;   
+    margin-top: 55Px;
 
+}
+
+.menu-header {
+    height: 70px;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .drawer .menu-container {
+    overflow: auto;
+    height: 100vh;
+    margin-top: -70px;
+    padding-top: 86px !important;
+    z-index: 10;
+  }
+
+  .drawer .menu-container .menu-item {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #199d76;
+    display: block;
+    font-weight: 500;
+    font-size: 1.125rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .drawer .menu-container .menu-item {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #199d76;
+    display: block;
+    font-weight: 500;
+    font-size: 1.125rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+.drawer .menu-container .menu-item:hover {
+    background-color: #e9ecef;
+    color: #199d76;
 }
 
 .side-drawer.open {
