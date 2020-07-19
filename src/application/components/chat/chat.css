@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex ;
+    flex: 1;
+    flex-direction: row;
+    
+}
+
+.leftwrapper {
+    display: flex;
+    flex: 4;
+    border-color: black;
+    border-style: solid;
+    border-width: 8;
+    margin: 8;
+    padding: 8;
+}
+
+.rightwrapper {
+  display: flex;
+  flex: 6;
+  border-color: black;
+  border-style: solid;
+  border-width: 8;
+  margin: 8;
+  padding: 8;
+}
+
+.rightflexed {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.compose {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}

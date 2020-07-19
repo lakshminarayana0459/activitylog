@@ -10,12 +10,15 @@ class header extends React.Component {
 render(){
     return(
         <header className="header">
-            <nav className="header__navigation">
-                <button onClick={this.props.drawerToggleClickHandler}> button</button>
-                <div className="header__logo"><a href="/">The LOGO</a></div>
-                <div>text</div>
+            <nav className="navbar navbar-default">
+            <button className="btn shadow-sml menu-button header__logo"
+        onClick={ this.props.drawerToggleClickHandler }
+      >
+        <i className="fa fa-bars"></i>
+             </button>
+            {/* <button onClick={this.props.drawerToggleClickHandler}> button</button> */}
             </nav>
-        </header>
+       </header>
     )
 }
 }
