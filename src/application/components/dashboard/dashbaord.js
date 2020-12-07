@@ -1,10 +1,22 @@
 import React from 'react';
+import "./DashBoard.css";
 
 class DashBoard extends React.Component {
 
     render(){
         return (
-            <h6> Dashboard </h6>
+            <div className="dashboard">
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+                <h6 style={{color: "red"}}> Dashboard </h6>
+            </div>
+
         )
     }
 

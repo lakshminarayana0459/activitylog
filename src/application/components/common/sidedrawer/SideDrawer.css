@@ -8,8 +8,13 @@
     width: 70%;
     max-width: 250px;
     z-index: 200;
-    margin-top: 55Px;
-
+}
+.drawer__header {
+  display: flex;
+  justify-content: space-evenly;
+}
+.drawer__headercloseicon {
+  border-radius: 0;
 }
 
 .menu-header {

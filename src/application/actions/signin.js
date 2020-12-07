@@ -1,34 +1,33 @@
 import { history } from '../history';
-import requestHandler from '../services/signin';
+import { signinApi } from '../services/signin';
 import { userConstants } from '../constants/user';
 import { alertActions } from '../actions/alert';
-
-export const userActions = {
-  signin,
-  signout
-};
+import { useDispatch, useSelector } from 'react-redux';
 
 
-function signin(username, password) {
-  
+// export const userActions = {
+//   signin,
+//   signout
+// };
+
+
+export function signin(username, password) {
   return dispatch => {
-      dispatch(request({ username }));
-      // dispatch(success({username}));
-      // localStorage.setItem('user', JSON.stringify(username));
+    dispatch(request({ username }));
+    // dispatch(success({username}));
+    // localStorage.setItem('user', JSON.stringify(username));
 
-      requestHandler.signin(username, password)
-          .then(user => { 
-                  dispatch(success());
-                  console.log("user success" + user.status);
-                  //history.replace('/home');
-                  history.push('/home');
-                  dispatch(alertActions.success('Registration successful'));     
-              },
-              error => {
-                  //dispatch(failure(error.toString()));
-                  dispatch(alertActions.error(error.toString()));
-              }
-          );
+    return signinApi(username, password)
+      .then(user => {
+        dispatch(success());
+        console.log("user success" + user.status);
+        dispatch(alertActions.success('Registration successful'));
+      },
+        error => {
+          //dispatch(failure(error.toString()));
+          dispatch(alertActions.error(error.toString()));
+        }
+      );
   };
 
   function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }

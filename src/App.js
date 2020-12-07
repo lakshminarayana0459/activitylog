@@ -1,15 +1,18 @@
 import React from 'react';
-import { store } from '../src/application/helper/store';
-import {getRoutes} from '../src/application/routes/Routes';
-import Layout from '../src/application/layout/Layout';
+import { Router } from 'react-router';
+import { history } from "../src/application/history";
+import Main from './application/Main';
 
 function App() {
   return (
-    <div>
-      { getRoutes(store) }
+    <div className="app">
+      <Router history={history} forceRefresh={true}>
+        <Main />
+      </Router>
     </div>
-       
-    
+
+
+
   );
 }
 
