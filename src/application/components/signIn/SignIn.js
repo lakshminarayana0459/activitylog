@@ -1,70 +1,64 @@
-import React from 'react';
-import {connect} from 'react-redux';
-//import PropTypes from 'prop-types';
-import { userActions } from '../../actions/signin';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { useHistory } from 'react-router-dom';
+import { signin, signout } from '../../actions/signin';
 
-class SignIn extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          username :'',
-          password :'',
-          errors : {},
-          isLaoding : false,
-        };
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-      } 
+const SignIn = (props) => {
 
-      onChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
-      }
+    const history = useHistory();
 
-      onSubmit(e) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const onSubmit = (e) => {
         e.preventDefault();
-        this.setState({isLaoding : true});
-        const { username, password } = this.state;
-        this.props.signin(username, password);
-      }
+        props.signin(username, password).then(() => {
+            history.push("/home");
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
 
-    render(){
-     //const { loggingIn } = this.props;
-      const { username, password, submitted } = this.state;
-      return (
-          <div className="col-md-6 col-md-offset-3">
-              <h2>Login</h2>
-              <form name="form" onSubmit={this.handleSubmit}>
-                  <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                      <label htmlFor="username">Username</label>
-                      <input type="text" className="form-control" name="username" value={username} onChange={this.onChange} />
-                      {submitted && !username &&
+    // render(){
+    //   const { username, password, submitted } = this.state;
+    return (
+        <div className="col-md-6 col-md-offset-3">
+            <h2>Login</h2>
+            <form name="form" >
+                <div className={'form-group' + (!username ? ' has-error' : '')}>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" className="form-control" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    {/* { !username &&
                           <div className="help-block">Username is required</div>
-                      }
-                  </div>
-                  <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                      <label htmlFor="password">Password</label>
-                      <input type="password" className="form-control" name="password" value={password} onChange={this.onChange} />
-                      {submitted && !password &&
+                      } */}
+                </div>
+                <div className={'form-group' + (!password ? ' has-error' : '')}>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" className="form-control" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    {/* { !password &&
                           <div className="help-block">Password is required</div>
-                      }
-                  </div>
-                  <div className="form-group">
-                      <button className="btn btn-primary" onClick={this.onSubmit}>Login</button>
-                  </div>
-              </form>
-          </div>
-      );
-  }
+                      } */}
+                </div>
+                <div className="form-group">
+                    <button className="btn btn-primary" onClick={onSubmit}>Login</button>
+                </div>
+            </form>
+        </div>
+    );
+    //}
 }
 
-function mapState(state) {
-  const { loggedIn } = state.signin;
-  return { loggedIn };
+const mapStateToProps = state => {
+    const { loggedIn } = state.signin;
+    return { loggedIn };
 }
 
-const actionCreators = {
-  signin: userActions.signin,
-  signout: userActions.signout
+const mapDispatchToProps = dispatch => {
+    return {
+        signin: bindActionCreators(signin, dispatch),
+        signout: signout
+    };
 };
 
- export default connect(mapState,actionCreators)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

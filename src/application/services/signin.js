@@ -1,8 +1,9 @@
 
-class RequestHandler {
-
-   
-    signin(username, password) {
+// export const RequestHandler = {
+//     signin,
+//     signout 
+// }
+    export function signinApi(username, password) {
         const requestOptions = {
             method: 'GET',
             headers : { 'Content-Type': 'application/json' ,'Accept': 'application/json'},
@@ -27,11 +28,11 @@ class RequestHandler {
              return data;}
            )
     }
-}
 
-let requestHandler = new RequestHandler();
 
-export default requestHandler;
+// let requestHandler = new RequestHandler();
+
+// export default requestHandler;
 
 
 

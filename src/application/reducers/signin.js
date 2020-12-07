@@ -1,7 +1,9 @@
 import { userConstants } from '../constants/user';
 
 let user = JSON.parse(localStorage.getItem('user'));
-const initialState = user ? { loggedIn: false, user } : {};
+//const initialState = user ? { loggedIn: false, user } : {};
+const initialState = { loggedIn: false, user, input : "lakshminarayana" } ;
+
 
 export default function signin(state = initialState, action) {
   console.log(action.user);

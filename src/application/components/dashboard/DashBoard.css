@@ -1,0 +1,6 @@
+.dashboard {
+    color: aquamarine;
+    background-color: blue;
+    overflow: auto;
+    display: flex;     
+}
