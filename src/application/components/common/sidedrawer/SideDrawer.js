@@ -9,10 +9,10 @@ import CloseIcon from '@material-ui/icons/Close';
 
 const APP_MENU = [
   {
-    text: 'DashBoard',
-    title: 'DashBoard',
+    text: 'Home',
+    title: 'Home',
     icon: "fa-box",
-    component: 'DashBoard'
+    component: 'Home'
   },
   {
     text: 'My Activity',
@@ -49,7 +49,7 @@ class SideDrawer extends React.Component {
       drawerClasses = ['side-drawer', 'open']
     }
     return (
-      <nav className={drawerClasses} defaultActiveKey="/Dashboard">
+      <nav className={drawerClasses} defaultActiveKey="/Home">
         <div className="drawer">
           <div className="drawer__header">
             <h5 className="pl-3">Menu</h5>

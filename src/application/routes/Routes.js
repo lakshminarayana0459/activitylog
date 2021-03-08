@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from "react-router-dom";
 import AddUser from "../components/adduser/AddUser";
-import Dashboard from "../components/dashboard/dashbaord";
+import Dashboard from "../components/dashboard/DashBoard";
 import Inventory from "../components/inventory/Inventory";
 import MyActivity from "../components/myactivity/MyActivity";
 import People from "../components/people/People";
@@ -54,9 +54,8 @@ function Routes() {
   return (
     <Switch>
       <Route path="/login" exact component={SignIn} />
-      <PrivateRoute exact path="/home" component={Home} />
-      <PrivateRoute exact path="/" component={Home} />
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <PrivateRoute exact path="/home" component={Dashboard} />
+      <PrivateRoute exact path="/" component={Dashboard} />
       <PrivateRoute exact path="/myactivity" component={MyActivity} />
       <PrivateRoute exact path="/projectAndtasks" component={ProjectAndTasks} />
       <PrivateRoute exact path="/people" component={People} />
